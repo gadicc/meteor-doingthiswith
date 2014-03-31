@@ -1,0 +1,11 @@
+{
+  "packages": {
+    "bootstrap-3": {},
+    "iron-router": {},
+    "select2": {},
+    "select2-bootstrap3-css": {},
+    "nvd3js": {},
+    "npm": {},
+    "font-awesome": {}
+  }
+}

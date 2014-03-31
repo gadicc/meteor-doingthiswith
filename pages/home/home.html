@@ -1,0 +1,24 @@
+<template name="home">
+	<h1>Welcome!</h1>
+
+	<p>DoingThisWith.Meteor.Com is your one-stop shop to find people and projects
+	using specific frameworks, technologies or developing specific types of apps in 
+	Meteor, e.g. famo.us, microcontrollers, and shoppingCart.  Use the navbar above
+	to explore the site (and log in to update your own interests and apps).</p>
+
+	<span  style='height:200px; width: 300px; display: inline-block;'>
+    	<svg class="chart" id='chart_interest'></svg>
+    </span>
+    <span style='height:200px; width: 300px; display: inline-block;'>
+    	<svg class="chart" id='chart_usage'></svg>
+    </span>
+
+	<p>
+		Data:
+		<ul>
+			<li>Users: {{userCount}}</li>
+			<li>Apps: {{appCount}}</li>
+			<li>Tags: {{tagCount}}</li>
+		</ul>
+	</p>
+</template>

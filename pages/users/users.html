@@ -1,0 +1,35 @@
+<template name="users">
+
+	<h1>Users</h1>
+
+	<p>
+		Filter by tag: &nbsp; <input id="userFilter" type="hidden" value="{{userTagFilter}}" />
+	</p>
+	<br />
+
+	{{#each users}}
+		{{> user}}
+	{{/each}}
+
+</template>
+
+<template name="user">
+	<div class="user">
+		<img src="{{profile.pic}}" />
+		<span>
+			<b>{{profile.name}}</b>
+			<span class="serviceLinks">
+				{{#if profile.github}}
+					<a href="https://github.com/{{profile.github}}" target="_TOP">
+						<i class="fa fa-github"></i>
+					</a>
+				{{/if}}
+			</span>
+		</span>
+		<div class="tags">
+			{{#each profile.tags}}
+				<span class="label {{#if inFilter}}label-warning{{else}}label-info{{/if}}">{{this}}</span>
+			{{/each}}
+		</div>
+	</div>
+</template>

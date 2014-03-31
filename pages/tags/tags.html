@@ -1,0 +1,41 @@
+<template name="tags">
+	<h2>Tag Admin</h2>
+
+	<p>Click on a tag name for full info.  When we have enough data, this page
+	will have nice charts by category type (technology, framework, type of site),
+	trends, etc.</p>
+
+	<table class="table table-striped">
+		<thead>
+			<tr>
+				<th>Name</th>
+				<th>Interested Users</th>
+				<th>Apps using It</th>
+				<th>Category</th>
+			</tr>
+		</thead>
+		<tbody>
+			{{#each tags}}
+				{{> tag}}
+			{{/each}}
+		</tbody>
+	</table>
+</template>
+
+<template name="tag">
+	<tr>
+		<td>{{name}}</td>
+		<td>{{interestCount}}</td>
+		<td>{{usageCount}}</td>
+		<td>{{#if userId}}
+			<select class="form-control">
+				<option value="" selected={{selected ''}}>Uncategorized</option>
+				<option value="tech" selected={{selected 'tech'}}>Technology</option>
+				<option value="framework" selected={{selected 'framework'}}>Framework</option>
+				<option value="sitetype" selected={{selected 'sitetype'}}>Site Type</option>
+			</select>
+		{{else}}
+			{{typeString}}
+		{{/if}}</td>
+	</tr>
+</template>

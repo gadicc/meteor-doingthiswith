@@ -1,0 +1,44 @@
+div.user {
+	border: 1px solid #aaa;
+	border-radius: 5px;
+	background: #fafafa;
+	position: relative;
+	width: 350px;
+	min-height: 87px;
+	padding: 5px 5px 5px 90px;
+	cursor: pointer;
+	display: inline-block;
+	margin: 0 20px 10px 0;
+}
+
+div.user:hover {
+	border: 1px solid #aaf;
+	background: #f0f0ff;
+}
+
+div.user .serviceLinks a {
+	color: #888;
+}
+div.user .serviceLinks a:hover {
+	color: red;
+}
+
+
+div.user > img {
+	width: 75px;
+	height: 75px;
+	position: absolute;
+	top: 5px;
+	left: 5px;
+	border: 1px solid #aaa;
+	border-radius: 5px;
+}
+
+div.user > .tags {
+	line-height: 200%;
+	margin-top: 5px;
+	white-space: normal;
+}
+div.user > .tags > span {
+	margin-right: 3px;
+}

@@ -1,0 +1,56 @@
+{
+  "meteor": {},
+  "dependencies": {
+    "basePackages": {
+      "bootstrap-3": {},
+      "iron-router": {},
+      "select2": {},
+      "select2-bootstrap3-css": {},
+      "nvd3js": {},
+      "npm": {},
+      "font-awesome": {}
+    },
+    "packages": {
+      "bootstrap-3": {
+        "git": "https://github.com/mangasocial/meteor-bootstrap-3.git",
+        "tag": "v3.1.1-1",
+        "commit": "63dd38968828bb8963636df93e9a1c45e2dfe67e"
+      },
+      "iron-router": {
+        "git": "https://github.com/EventedMind/iron-router.git",
+        "tag": "v0.7.0",
+        "commit": "05f34bc48c4cad9fdaa366c1ddcabe6980232ece"
+      },
+      "select2": {
+        "git": "https://github.com/nate-strauser/meteor-select2.git",
+        "tag": "v3.4.5",
+        "commit": "4a8d05582b949a14f0ee217c185166abbf112822"
+      },
+      "select2-bootstrap3-css": {
+        "git": "https://github.com/esperadomedia/meteor-select2-bootstrap3-css.git",
+        "tag": "v0.0.5",
+        "commit": "ac0c74d4b110c4c5149f17bb33c3e9bb4f77eb88"
+      },
+      "nvd3js": {
+        "git": "https://github.com/ouuyeah/nvd3js.git",
+        "tag": "v0.1.0",
+        "commit": "89a8c66bb3b35d25900d31195ae0b318e4176ddb"
+      },
+      "npm": {
+        "git": "https://github.com/arunoda/meteor-npm.git",
+        "tag": "v0.2.6",
+        "commit": "177ab6118de5bf8cffb19481343d5762ff7a2aaf"
+      },
+      "font-awesome": {
+        "git": "https://github.com/nate-strauser/meteor-font-awesome.git",
+        "tag": "v4.0.3",
+        "commit": "61e9361384347547ae144f8228faa4deffda23db"
+      },
+      "blaze-layout": {
+        "git": "https://github.com/EventedMind/blaze-layout.git",
+        "tag": "v0.2.2",
+        "commit": "8bc53798fe5965669ae67c72f91829fcfdceabfd"
+      }
+    }
+  }
+}
