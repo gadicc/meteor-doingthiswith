@@ -18,3 +18,23 @@ body {
   background-repeat: no-repeat;
   display: inline-block;
 }
+
+#connection-lost-banner {
+	_position: static !important;
+	text-align: center;
+}
+
+#connection-lost-banner + div.navbar-fixed-top {
+    top: 41px;
+}
+div.navbar-fixed-top + #connection-lost-banner {
+    top: 51px;
+}
+div.navbar-fixed-top + #connection-lost-banner + div.row {
+	margin-top: 41px;
+}
+
+#iron-router-progress {
+    background-color : #00D3F2;
+    box-shadow       : rgba(0, 242, 228, 0.5);
+}

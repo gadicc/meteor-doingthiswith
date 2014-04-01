@@ -1,4 +1,41 @@
 <template name="apps">
 	<h2>Apps</h2>
 
+	<p>
+		Filter by tag: &nbsp; <input id="userFilter" type="hidden" value="{{userTagFilter}}" />
+	</p>
+	<br />
+
+	<div id="appCols">
+		{{#each apps}}
+			{{> app}}
+		{{/each}}
+	</div>
+
+</template>
+
+<template name="app">
+	<a href="/apps/{{_id}}" class="user app">
+		<img src="" />
+		<span>
+			<b>{{name}}</b>
+			<span class="serviceLinks">
+				{{#if siteUrl}}
+					<a href="{{siteUrl}}}}" target="_TOP">
+						<i class="fa fa-home"></i>
+					</a>
+				{{/if}}
+				{{#if projectUrl}}
+					<a href="{{projectUrl}}}}" target="_TOP">
+						<i class="fa fa-code"></i>
+					</a>
+				{{/if}}
+			</span>
+		</span>
+		<div class="tags">
+			{{#each tags}}
+				<span class="label {{#if inFilter}}label-warning{{else}}label-info{{/if}}">{{this}}</span>
+			{{/each}}
+		</div>
+	</a>
 </template>

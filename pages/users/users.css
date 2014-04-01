@@ -1,9 +1,19 @@
-div.user {
+#userCols {
+	-webkit-column-count: 3;
+	-moz-column-count: 3;
+	column-count: 3;
+
+  -webkit-column-gap: 10px;
+  -moz-column-gap: 10px;
+  column-gap: 10px;
+}
+
+a.user {
 	border: 1px solid #aaa;
 	border-radius: 5px;
 	background: #fafafa;
 	position: relative;
-	width: 350px;
+	width: 100%;
 	min-height: 87px;
 	padding: 5px 5px 5px 90px;
 	cursor: pointer;
@@ -11,20 +21,21 @@ div.user {
 	margin: 0 20px 10px 0;
 }
 
-div.user:hover {
+a.user:hover {
 	border: 1px solid #aaf;
 	background: #f0f0ff;
+	text-decoration: none
 }
 
-div.user .serviceLinks a {
+a.user .serviceLinks a {
 	color: #888;
 }
-div.user .serviceLinks a:hover {
+a.user .serviceLinks a:hover {
 	color: red;
 }
 
 
-div.user > img {
+a.user > img {
 	width: 75px;
 	height: 75px;
 	position: absolute;
@@ -34,11 +45,11 @@ div.user > img {
 	border-radius: 5px;
 }
 
-div.user > .tags {
-	line-height: 200%;
+a.user > .tags {
+	line-height: 1.55em;
 	margin-top: 5px;
-	white-space: normal;
 }
-div.user > .tags > span {
-	margin-right: 3px;
+a.user > .tags > span {
+	display: inline-block;
+	margin-right: 1px;
 }

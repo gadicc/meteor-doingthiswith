@@ -5,7 +5,6 @@
 
 standard-app-packages
 autopublish
-insecure
 bootstrap-3
 iron-router
 select2
@@ -18,4 +17,7 @@ accounts-merge
 accounts-github
 accounts-google
 npm
+connection-banner
+x-editable-bootstrap3
 font-awesome
+force-ssl

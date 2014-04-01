@@ -6,6 +6,9 @@
     "select2-bootstrap3-css": {},
     "nvd3js": {},
     "npm": {},
-    "font-awesome": {}
+    "font-awesome": {},
+    "connection-banner": {},
+    "iron-router-progress": {},
+    "x-editable-bootstrap3": {}
   }
 }

@@ -59,6 +59,7 @@ if (Meteor.isClient) {
 if (Meteor.isServer) {
 
   AccountsExtra.init({
+    saveCreatedAt: true,
     saveProfilePic: true,
     saveServiceUsername: true
   });

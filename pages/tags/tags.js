@@ -46,22 +46,28 @@ Meteor.methods({
     check(target, Match.Where(function(s) { return s == 'app' || s == 'user' }));
     check(target, String);
     check(action, Match.Where(function(s) { return s == 'push' || s == 'pull' }));
-    check(tag, { id: String, text: String });
+    check(tag, Match.OneOf(String, [String]));
 
     if ((target == "user" && targetId != this.userId))
       throw new Meteor.error('Attempt by non-admin user to modify other info');
 
     var col = target == 'user' ? Meteor.users : Apps;
     var query = {};
+
     action = '$' + action;    
     query[action] = { };
-    query[action]['profile.tags'] = tag.id;
+    query[action]['profile.tags'] = _.isArray(tag) ? { $each: tag } : tag;
     col.update(targetId, query);
 
     query = { $inc: {} };
     query.$inc[target == 'user' ? 'interestCount' : 'usageCount']
       = action == '$push' ? 1 : -1;
-    Tags.upsert({name: tag.id}, query);
+    if (_.isArray(tag))
+      _.each(tag, function(tag) {
+        Tags.upsert({name: tag}, query);
+      });
+    else
+      Tags.upsert({name: tag}, query);
   }
 });
 

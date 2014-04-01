@@ -7,14 +7,16 @@
 	</p>
 	<br />
 
-	{{#each users}}
-		{{> user}}
-	{{/each}}
+	<div id="userCols">
+		{{#each users}}
+			{{> user}}
+		{{/each}}
+	</div>
 
 </template>
 
 <template name="user">
-	<div class="user">
+	<a class="user" href="/users/{{_id}}">
 		<img src="{{profile.pic}}" />
 		<span>
 			<b>{{profile.name}}</b>
@@ -31,5 +33,5 @@
 				<span class="label {{#if inFilter}}label-warning{{else}}label-info{{/if}}">{{this}}</span>
 			{{/each}}
 		</div>
-	</div>
+	</a>
 </template>

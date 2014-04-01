@@ -8,7 +8,10 @@
       "select2-bootstrap3-css": {},
       "nvd3js": {},
       "npm": {},
-      "font-awesome": {}
+      "font-awesome": {},
+      "connection-banner": {},
+      "iron-router-progress": {},
+      "x-editable-bootstrap3": {}
     },
     "packages": {
       "bootstrap-3": {
@@ -45,6 +48,21 @@
         "git": "https://github.com/nate-strauser/meteor-font-awesome.git",
         "tag": "v4.0.3",
         "commit": "61e9361384347547ae144f8228faa4deffda23db"
+      },
+      "connection-banner": {
+        "git": "https://github.com/nate-strauser/meteor-connection-banner.git",
+        "tag": "v0.2.1",
+        "commit": "aeb866f75e626262a97e9c913ac7dd5425e5c118"
+      },
+      "iron-router-progress": {
+        "git": "https://github.com/Multiply/iron-router-progress.git",
+        "tag": "v0.3.1",
+        "commit": "3f7900feb4bb70a1289b39a1fdcd1f438c0335b3"
+      },
+      "x-editable-bootstrap3": {
+        "git": "https://github.com/JustinSGray/meteor-x-editable-bootstrap.git",
+        "tag": "v1.5.2",
+        "commit": "1e5e6d7bddf0b17cc6ea2fc1f50c3f9fd2cfc3f3"
       },
       "blaze-layout": {
         "git": "https://github.com/EventedMind/blaze-layout.git",
