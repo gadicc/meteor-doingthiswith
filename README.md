@@ -4,6 +4,12 @@ DoingThisWith.Meteor.Com is your one-stop shop to find people and projects using
 
 See the site, at https://doingthiswith.meteor.com/
 
+## Contributing
+
+This is a community project.  Pull Requests are welcome.
+
+**All Pull Requests should be on the *devel* branch**
+
 ## TODO (depending on use)
 
 * Author & App pages
