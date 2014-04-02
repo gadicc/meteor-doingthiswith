@@ -57,6 +57,10 @@ if (Meteor.isClient) {
 			
 			event.preventDefault();
 			Meteor.call('webshot', this._id);
+		},
+
+		'click .serviceLinks a': function(event, tpl) {
+			event.stopPropagation();
 		}
 
 	});

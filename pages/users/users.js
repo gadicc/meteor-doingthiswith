@@ -21,6 +21,10 @@ if (Meteor.isClient) {
 
 		userTagFilter: function() {
 			return Session.get('userTagFilter').join(',');
+		},
+
+		inFilter: function() {
+			return _.contains(Session.get('userTagFilter'), this.valueOf());
 		}
 
 	});
@@ -46,10 +50,10 @@ if (Meteor.isClient) {
 
 	}
 
-	Template.user.helpers({
+	Template.user.events({
 
-		inFilter: function() {
-			return _.contains(Session.get('userTagFilter'), this.valueOf());
+		'click .serviceLinks a': function(event, tpl) {
+			event.stopPropagation();
 		}
 
 	});

@@ -19,8 +19,8 @@ npm
 connection-banner
 x-editable-bootstrap3
 font-awesome
-force-ssl
 collectionFS
 cfs-s3
 cfs-filesystem
 select2-bootstrap3-css
+force-ssl
