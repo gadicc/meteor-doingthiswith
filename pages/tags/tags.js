@@ -49,7 +49,12 @@ Meteor.methods({
     check(tag, Match.OneOf(String, [String]));
 
     if ((target == "user" && targetId != this.userId))
-      throw new Meteor.error('Attempt by non-admin user to modify other info');
+      throw new Meteor.error(403, 'Attempt by non-admin user to modify other info');
+    if (target == "app") {
+      var app = Apps.findOne(targetId);
+      if (app.userId != this.userId)
+        throw new Meteor.error(403, 'Attempt by non-admin user to modify other info');
+    }
 
     var col = target == 'user' ? Meteor.users : Apps;
     var field = target == 'user' ? 'profile.tags' : 'tags';
