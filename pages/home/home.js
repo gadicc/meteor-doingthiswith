@@ -57,7 +57,8 @@ if (Meteor.isClient) {
 
         chart.discretebar.dispatch.on("elementClick", function(event) {
           if (event.point)
-            Router.go('/tags/' + event.point.label);
+            Router.go((key == 'interest' ? '/users/search/' : '/apps/search/')
+              + event.point.label);
         });
 
         nv.utils.windowResize(chart.update);
