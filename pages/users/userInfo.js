@@ -22,7 +22,7 @@ if (Meteor.isClient) {
 				}
 			}
 		});
-
+    
 	});
 
   Template.userInfo.helpers({

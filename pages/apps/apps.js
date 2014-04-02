@@ -1,7 +1,17 @@
 if (Meteor.isClient) {
 
   Router.map(function() {
+
     this.route('apps');
+
+    this.route('appSearch', {
+      template: 'apps',
+      path: '/apps/search/:tags',
+      onBeforeAction: function() {
+      	Session.set('userTagFilter', this.params.tags.split(','));
+      }
+    });
+
   });
 
 	Template.apps.helpers({

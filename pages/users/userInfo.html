@@ -101,7 +101,7 @@
 		{{else}}
 			<div class="tags">
 				{{#each profile.tags}}
-					<span class="label label-info">{{this}}</span>
+					<a href="/users/search/{{this}}" class="label label-info">{{this}}</a>
 				{{/each}}
 			</div>
 		{{/if}}

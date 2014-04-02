@@ -2,6 +2,14 @@ if (Meteor.isClient) {
 
 	Router.map(function() {
 		this.route('users');
+
+    this.route('usersSearch', {
+      template: 'users',
+      path: '/users/search/:tags',
+      onBeforeAction: function() {
+      	Session.set('userTagFilter', this.params.tags.split(','));
+      }
+    });
 	});
 
 	Session.setDefault('userTagFilter', []);
@@ -21,10 +29,6 @@ if (Meteor.isClient) {
 
 		userTagFilter: function() {
 			return Session.get('userTagFilter').join(',');
-		},
-
-		inFilter: function() {
-			return _.contains(Session.get('userTagFilter'), this.valueOf());
 		}
 
 	});
@@ -54,6 +58,14 @@ if (Meteor.isClient) {
 
 		'click .serviceLinks a': function(event, tpl) {
 			event.stopPropagation();
+		}
+
+	});
+
+	Template.user.helpers({
+
+		inFilter: function() {
+			return _.contains(Session.get('userTagFilter'), this.valueOf());
 		}
 
 	});
