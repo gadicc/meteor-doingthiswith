@@ -28,8 +28,11 @@ if (Meteor.isClient) {
     var data = Tags.find(query, options).fetch();
     data = [{
       key: title || key,
-      values: _.map(data, function(tag) { return { label: tag.name, value: tag.interestCount }} )
+      values: _.map(data, function(tag) {
+        return { label: tag.name, value: tag[key+'Count'] }
+      })
     }];
+    console.log(data);
     return data;
   }
 

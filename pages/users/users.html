@@ -21,9 +21,24 @@
 		<span>
 			<b>{{profile.name}}</b>
 			<span class="serviceLinks">
+				{{#if profile.email}}
+					<a href="mailto:{{profile.email}}?subject=doingThisWith query" target="_TOP">
+						<i class="fa fa-envelope"></i>
+					</a>
+				{{/if}}
 				{{#if profile.github}}
 					<a href="https://github.com/{{profile.github}}" target="_TOP">
 						<i class="fa fa-github"></i>
+					</a>
+				{{/if}}
+				{{#if profile.twitter}}
+					<a href="https://twitter.com/{{profile.twitter}}" target="_TOP">
+						<i class="fa fa-github"></i>
+					</a>
+				{{/if}}
+				{{#if profile.gplus}}
+					<a href="https://plus.google.com/{{profile.gplus}}" target="_TOP">
+						<i class="fa fa-google-plus"></i>
 					</a>
 				{{/if}}
 			</span>

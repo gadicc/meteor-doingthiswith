@@ -1,0 +1,1 @@
+// Webshots = new FS.Collection("webshots");

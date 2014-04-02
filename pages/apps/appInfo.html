@@ -1,7 +1,37 @@
 <template name="appInfo">
 	{{#with app}}
-	<h1>{{name}}</h1>
+	<div id="appInfo" data-app-id={{_id}}>
 
-	<p>Coming soon.</p>
+		<h1>{{name}}</h1>
+
+		<div class="imgWrapper">
+			<img src="{{picUrl}}" />
+			<a class="updateThumb">Update Webshot</a>
+		</div>
+
+		<p>
+			<b>Creator</b>:
+			<a href="/users/{{userId}}">{{username userId}}</a>
+		</p>
+
+		<p>
+			<b>Site URL</b>:
+			<a id="appInfoSiteUrl"
+				href="{{#if ownedByUser}}{{else}}{{siteUrl}}{{/if}}">{{siteUrl}}</a>
+		</p>
+
+		<p>
+			<b>Project URL</b>:
+			<a id="appInfoProjectUrl"
+				href="{{#if ownedByUser}}{{else}}{{projectUrl}}{{/if}}">{{projectUrl}}</a>
+		</p>
+
+		<p>
+			<input type='hidden' id="appTags" class="form-control"
+				data-type="tags" value="{{tags}}" />
+		</p>
+
+
+	</div>
 	{{/with}}
 </template>

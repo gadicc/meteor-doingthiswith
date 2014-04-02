@@ -33,6 +33,14 @@ if (Meteor.isClient) {
     return !Meteor.userId();
   });
 
+  UI.registerHelper('username', function(userId) {
+    var user = userId ? Meteor.users.findOne(userId) : Meteor.user();
+    return user && user.profile && user.profile.name;
+  });
+  UI.registerHelper('ownedByUser', function() {
+    return this.userId == Meteor.userId();
+  });
+
   // temporary while we use autopublish
   var allSubscriptionsReadyDep = new Deps.Dependency;
   var allSubscriptionsReadyValue = false;

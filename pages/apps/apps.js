@@ -20,6 +20,10 @@ if (Meteor.isClient) {
 
 		userTagFilter: function() {
 			return Session.get('userTagFilter').join(',');
+		},
+
+		inFilter: function() {
+			return _.contains(Session.get('userTagFilter'), this.valueOf());
 		}
 
 	});
@@ -45,10 +49,14 @@ if (Meteor.isClient) {
 
 	}
 
-	Template.user.helpers({
+	Template.app.events({
 
-		inFilter: function() {
-			return _.contains(Session.get('userTagFilter'), this.valueOf());
+		'click a.updateThumb': function(event, tpl) {
+			if (Meteor.userId() != this.userId)
+				return;
+			
+			event.preventDefault();
+			Meteor.call('webshot', this._id);
 		}
 
 	});

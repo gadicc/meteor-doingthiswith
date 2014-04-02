@@ -9,6 +9,8 @@
     "font-awesome": {},
     "connection-banner": {},
     "iron-router-progress": {},
-    "x-editable-bootstrap3": {}
+    "x-editable-bootstrap3": {},
+    "collectionFS": {},
+    "cfs-s3": {}
   }
 }

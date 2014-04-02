@@ -52,11 +52,12 @@ Meteor.methods({
       throw new Meteor.error('Attempt by non-admin user to modify other info');
 
     var col = target == 'user' ? Meteor.users : Apps;
+    var field = target == 'user' ? 'profile.tags' : 'tags';
     var query = {};
 
     action = '$' + action;    
     query[action] = { };
-    query[action]['profile.tags'] = _.isArray(tag) ? { $each: tag } : tag;
+    query[action][field] = _.isArray(tag) ? { $each: tag } : tag;
     col.update(targetId, query);
 
     query = { $inc: {} };

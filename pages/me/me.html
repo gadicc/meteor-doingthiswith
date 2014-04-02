@@ -5,8 +5,29 @@
 	<div id="meDiv" data-user-id={{_id}}>
 		<h2>Public Info</h2>
 
-		<img id="meProfile" src="{{profile.pic}}" data-value="{{profile.pic}}"/>
-		<a id="meName">{{profile.name}}</a>
+		<table><tr><td>
+			<img id="me_pic" src="{{profile.pic}}" data-value="{{profile.pic}}"/>
+		</td><td> &nbsp; &nbsp; </td><td>
+			<p>
+				<b><a id="me_name">{{profile.name}}</a></b>
+			</p>
+
+			<p>
+				<i class="fa fa-envelope fa-fw"></i>
+					<a id="me_email">{{profile.email}}</a>
+					<br />
+				<i class="fa fa-github fa-fw"></i>
+					<a id="me_github">{{profile.github}}</a>
+					<br />
+				<i class="fa fa-twitter fa-fw"></i>
+					<a id="me_twitter">{{profile.twitterl}}</a>
+					<br />
+				<i class="fa fa-google-plus fa-fw"></i>
+					<a id="me_gplus">{{profile.gPlus}}</a>
+					<br />
+			</p>
+
+		</td></tr></table>
 
 		<h2>My Interests</h2>
 		<input type='hidden' id="meTags" class="form-control"
@@ -58,7 +79,7 @@
 		</form>
 	</div>
 
-	<div id="appCols">
+	<div id="userCols">
 		{{#each apps}}
 			{{> app}}
 		{{/each}}

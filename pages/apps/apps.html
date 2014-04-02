@@ -6,7 +6,7 @@
 	</p>
 	<br />
 
-	<div id="appCols">
+	<div id="userCols">
 		{{#each apps}}
 			{{> app}}
 		{{/each}}
@@ -16,7 +16,10 @@
 
 <template name="app">
 	<a href="/apps/{{_id}}" class="user app">
-		<img src="" />
+		<div class="imgWrapper">
+			<img src="{{thumbUrl}}" />
+			<a class="updateThumb">Update Thumb</a>
+		</div>
 		<span>
 			<b>{{name}}</b>
 			<span class="serviceLinks">

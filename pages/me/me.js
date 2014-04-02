@@ -1,3 +1,5 @@
+SPINNER_PATH = '/spinner.gif';
+
 if (Meteor.isClient) {
 
   Router.map(function() {
@@ -26,10 +28,15 @@ if (Meteor.isClient) {
         siteUrl: tpl.$('#mna_siteUrl').val(),
         projectUrl: tpl.$('#mna_projectHome').val(),
         createdAt: new Date(),
-        userId: Meteor.userId()
+        userId: Meteor.userId(),
+        // also in webshots.js
+        thumbUrl: SPINNER_PATH,
+        picUrl: SPINNER_PATH 
       }
 
       var appId = Apps.insert(data);
+      Meteor.call('webshot', appId);
+
       var tags = tpl.$('#mna_tags').select2('val');
       Meteor.call('tags', 'app', appId, 'push', tags);
  
@@ -42,18 +49,16 @@ if (Meteor.isClient) {
   });
 
   Template.me.rendered = function() {
-    this.$('#meName').editable({
-      success: function(response, newValue) {
-        var userId = $(this).closest('[data-user-id]').data('user-id');
-        Meteor.users.update(userId, { $set: { 'profile.name': newValue } });
-      }
-    });
-
-    this.$('#meProfile').editable({
-      success: function(response, newValue) {
-        var userId = $(this).closest('[data-user-id]').data('user-id');
-        Meteor.users.update(userId, { $set: { 'profile.pic': newValue } });
-      }
+    _.each(
+      ['name', 'pic', 'email', 'github', 'twitter', 'gplus'],
+      function(what) {
+      this.$('#me_'+what).editable({
+        success: function(response, newValue) {
+          var docId = $(this).closest('[data-user-id]').attr('data-user-id');
+          var query = { $set: {} }; query['$set']['profile.'+what] = newValue;
+          Meteor.users.update(docId, query);
+        }
+      });
     });
 
     // tag input

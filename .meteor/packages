@@ -8,7 +8,6 @@ autopublish
 bootstrap-3
 iron-router
 select2
-select2-bootstrap3-css
 accounts-ui
 accounts-password
 nvd3js
@@ -21,3 +20,7 @@ connection-banner
 x-editable-bootstrap3
 font-awesome
 force-ssl
+collectionFS
+cfs-s3
+cfs-filesystem
+select2-bootstrap3-css

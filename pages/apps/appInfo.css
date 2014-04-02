@@ -1,38 +1,31 @@
-a.app {
-	padding-left: 115px !important;
-}
-
-a.app > div.imgWrapper {
-	width: 102px; height: 77px;
-	position: absolute;
-	top: 5px;	left: 5px;
+#appInfo > div.imgWrapper {
+	width: 402px; height: 302px;
 	border: 1px solid #aaa;
 	border-radius: 5px;
+	position: relative;
 }
 
-a.app > div.imgWrapper > a {
+#appInfo > div.imgWrapper > a {
 	position: absolute; bottom: 0; left: 0;
-	display: block; width: 100px;
+	display: block; width: 402px;
 	padding: 5px; background: rgba(0,0,0,0.7);
 	color: white; text-align: center;
 	border-bottom-left-radius: 5px;
 	border-bottom-right-radius: 5px;
 	visibility: hidden;
-	font-size: .8em;
-	line-height: .8em;
 }
-a.app > div.imgWrapper:hover > a {
+#appInfo > div.imgWrapper:hover > a {
 	visibility: visible;
 }
 
 
-a.app img {
-	width: 100px; height: 75px;
+#appInfo img {
+	width: 400px; height: 300px;
 	background: white;
 	border-radius: 5px;
 	position: absolute; top: 1; left: 1;
 }
 
-a.app img[src="/spinner.gif"] {
+#appInfo img[src="/spinner.gif"] {
 	padding: 20px 30px 20px 30px;
 }
