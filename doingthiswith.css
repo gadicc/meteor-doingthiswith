@@ -4,6 +4,10 @@ body {
   padding-top: 50px;
 }
 
+div.navbar {
+  padding-right: 15px;
+}
+
 #login-buttons {
 	/* like .navbar-nav > li > a */
 	padding-top: 15px; padding-bottom: 15px; display: block;
