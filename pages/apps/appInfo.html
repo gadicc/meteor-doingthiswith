@@ -1,13 +1,33 @@
-<template name="appInfo">
+<template name="appInfoPage">
 	{{#with app}}
+		{{> appInfo}}
+	{{/with}}
+</template>
+
+<template name="appInfo">
 	<div id="appInfo" data-app-id={{_id}}>
 
 		<h1>{{name}}</h1>
 
 		<div class="imgWrapper">
 			<img src="{{picUrl}}" />
-			<a class="updateThumb">Update Webshot</a>
+			{{#if ownedByUser}}
+				<a class="updateThumb">Update Webshot</a>
+			{{/if}}
 		</div>
+
+		<p>
+			{{#if ownedByUser}}
+			<input type='hidden' id="appTags" class="form-control"
+				data-type="tags" value="{{tags}}" />
+			{{else}}
+				<div class="tags">
+					{{#each tags}}
+						<span class="label label-info">{{this}}</span>
+					{{/each}}
+				</div>
+			{{/if}}
+		</p>
 
 		<p>
 			<b>Creator</b>:
@@ -26,12 +46,5 @@
 				href="{{#if ownedByUser}}{{else}}{{projectUrl}}{{/if}}">{{projectUrl}}</a>
 		</p>
 
-		<p>
-			<input type='hidden' id="appTags" class="form-control"
-				data-type="tags" value="{{tags}}" />
-		</p>
-
-
 	</div>
-	{{/with}}
 </template>

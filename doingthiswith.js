@@ -40,6 +40,9 @@ if (Meteor.isClient) {
   UI.registerHelper('ownedByUser', function() {
     return this.userId == Meteor.userId();
   });
+  UI.registerHelper('itsMe', function() {
+    return this._id == Meteor.userId();
+  });
 
   // temporary while we use autopublish
   var allSubscriptionsReadyDep = new Deps.Dependency;

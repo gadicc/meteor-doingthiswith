@@ -3,6 +3,7 @@
 	border: 1px solid #aaa;
 	border-radius: 5px;
 	position: relative;
+	margin-bottom: 12px;
 }
 
 #appInfo > div.imgWrapper > a {

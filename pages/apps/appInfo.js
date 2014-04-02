@@ -1,7 +1,7 @@
 if (Meteor.isClient) {
 
 	Router.map(function() {
-		this.route('appInfo', {
+		this.route('appInfoPage', {
 			path: '/apps/:id',
 			data: function() {
 				return {
@@ -19,6 +19,10 @@ if (Meteor.isClient) {
 	});
 
 	Template.appInfo.rendered = function() {
+    // Nothing to do if user doesn't own this app
+    if (this.data.userId != Meteor.userId())
+      return;
+
 		// pretty much all adapted from me.js
 
     this.$('#appInfoSiteUrl').editable({

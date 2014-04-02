@@ -1,0 +1,10 @@
+#user_pic {
+	width: 100px; height: 100px;
+	border: 1px solid #aaa;
+	border-radius: 5px;
+	display: block;
+}
+#user_pic:hover { border: 1px solid #aaf; }
+
+#userDiv a { cursor: pointer; }
+#userDiv i { color: #777; }
