@@ -25,8 +25,8 @@
 <template name="tag">
 	<tr>
 		<td>{{name}}</td>
-		<td>{{interestCount}}</td>
-		<td>{{usageCount}}</td>
+		<td><a href="/users/search/{{name}}">{{interestCount}}</a></td>
+		<td><a href="/apps/search/{{name}}">{{usageCount}}</a></td>
 		<td>{{#if userId}}
 			<select class="form-control">
 				<option value="" selected={{selected ''}}>Uncategorized</option>
