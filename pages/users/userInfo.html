@@ -45,8 +45,17 @@
 		<h2>My Interests</h2>
 
 		{{#if itsMe}}
-		<input type='hidden' id="userTags" class="form-control"
-			data-type="tags" value="{{joinedTags}}" />
+			<p>
+				<p>Examples (create your own):</p>
+				<ul>
+					<li><b>Technologies</b>: microcontrollers, AR, VR, machineLearning, mapping, etc</li>
+					<li><b>Frameworks</b>: famo.us, phonegap, mylar, etc.</li>
+					<li><b>App types</b>: blog, wiki, news, ecommerce, social, etc</li>
+					<li><b>General</b>: Beliefs, hobbies, that you might build a site for</li>
+				</ul>
+			</p>
+			<input type='hidden' id="userTags" class="form-control"
+				data-type="tags" value="{{joinedTags}}" />
 		{{else}}
 			<div class="tags">
 				{{#each profile.tags}}
