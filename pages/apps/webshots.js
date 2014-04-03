@@ -1,5 +1,8 @@
 if (Meteor.isServer) {
 
+  // need to manually adjust timeout time in script too if this changes
+  var PHANTOMJS_TIMEOUT = 10000;
+
   var webshot = Async.wrap(Meteor.require('webshot'));
   var gm = Meteor.require('gm');
   var im = gm.subClass({ imageMagick: true });
@@ -8,7 +11,9 @@ if (Meteor.isServer) {
   // Modified from spiderable package
   // https://github.com/meteor/meteor/blob/devel/packages/spiderable/spiderable.js
   var phantomScript = function() {
-    setInterval(function() {
+    var startTime = new Date();
+
+    var handle = setInterval(function() {
       var ready;
       if (typeof Meteor !== 'undefined'
           && typeof(Meteor.status) !== 'undefined'
@@ -19,15 +24,32 @@ if (Meteor.isServer) {
         ready = false;
 
       if (ready) {
-        window.callPhantom('takeShot');
+        clearInterval(handle);
+        setTimeout(function() {
+          // Let some images load, etc.
+          window.callPhantom('takeShot');
+        }, 1000);
+      }
+
+      if (document.readyState == 'complete' && typeof Meteor == 'undefined') {
+        clearInterval(handle);
+        window.callPhantom('takeShot'); // non Meteor site, apparently
       }
     }, 100);
+
+    setInterval(function() {
+      // can't use PHANTOMJS_TIMEOUT in this context
+      if (new Date()-startTime > 8000) {
+        // Rather than timing out, just take a shot of whatever's ready
+        window.callPhantom('takeShot');
+      }
+    }, 500);
   }
 
   var options = {
   	script: phantomScript,
   	takeShotOnCallback: true,
-  	timeout: 10000	
+  	timeout: PHANTOMJS_TIMEOUT
   }
 
   Meteor.methods({
