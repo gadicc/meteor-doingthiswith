@@ -27,7 +27,7 @@ if (Meteor.isClient) {
   }
 
   UI.registerHelper('userId', function() {
-    return Meteor.userId();
+    return this.userId || Meteor.userId();
   });
   UI.registerHelper('notLoggedIn', function() {
     return !Meteor.userId();
