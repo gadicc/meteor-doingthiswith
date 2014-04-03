@@ -31,7 +31,7 @@ if (Meteor.isClient) {
     }
   });
 
-  Template.userInfo.events({
+  Template.myApps.events({
     'submit': function(event, tpl) {
       event.preventDefault();
       var data = {
@@ -76,23 +76,11 @@ if (Meteor.isClient) {
     });
 
     // tag input
-    this.$('input[data-type="tags"]').select2({
+    this.$('#userTags').select2({
       width: 'resolve',
-      tags: function() {
-        return tagCache;
-      },
-      initSelection : function (element, callback) {
-        var data = [];
-        $(element.val().split(",")).each(function () {
-            data.push({id: this, text: this});
-        });
-        callback(data);
-      },
+      tags: function() { return tagCache; },
       tokenSeparators: [",", " "],
-    });
-
-    this.$('#userTags').on('change', function(event) {
-
+    }).on('change', function(event) {
         if (event.added)
           Meteor.call('tags', 'user', Meteor.userId(), 'push', event.added.id);
         if (event.removed) {
@@ -100,6 +88,14 @@ if (Meteor.isClient) {
           Meteor.call('tags', 'user', Meteor.userId(),
             'pull', event.removed.id.toString());
         }
+    });
+  }
+
+  Template.myApps.rendered = function() {
+    this.$('#mna_tags').select2({
+      width: 'resolve',
+      tags: function() { return tagCache; },
+      tokenSeparators: [",", " "],
     });
   }
 
