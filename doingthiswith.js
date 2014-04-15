@@ -19,6 +19,26 @@ if (Meteor.isClient) {
     }
   });
 
+  UI.registerHelper('xEditableUpdate', function(selector, value) {
+    var el = $(selector);
+    var data = el.data();
+
+    // .editable() hasn't been run yet
+    if (!data || !data.editable)
+      return value;
+
+    console.log('data');
+    // this is used the first time the popup is opened
+    data.editable.value = value;
+    // this is used for all consequent lookups
+    if (data.editableContainer)
+      data.editableContainer.formOptions.value = value;
+    // since return value isn't used anymore
+    el.text(value);
+    // not actually used; innerText from x-editable breaks reactivity
+    return value;
+  });
+
   Router.hooks.loginFirst = function(pause) {
     if (!Meteor.userId()) {
       this.render('loginFirst');

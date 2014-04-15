@@ -37,13 +37,13 @@
 		<p>
 			<b>Site URL</b>:
 			<a id="appInfoSiteUrl"
-				href="{{#if ownedByUser}}{{else}}{{siteUrl}}{{/if}}">{{siteUrl}}</a>
+				href="{{#if ownedByUser}}{{else}}{{siteUrl}}{{/if}}">{{xEditableUpdate '#appInfoSiteUrl' siteUrl}}</a>
 		</p>
 
 		<p>
 			<b>Project URL</b>:
 			<a id="appInfoProjectUrl"
-				href="{{#if ownedByUser}}{{else}}{{projectUrl}}{{/if}}">{{projectUrl}}</a>
+				href="{{#if ownedByUser}}{{else}}{{projectUrl}}{{/if}}">{{xEditableUpdate '#appInfoProjectUrl' projectUrl}}</a>
 		</p>
 
 	</div>

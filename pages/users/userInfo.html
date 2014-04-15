@@ -15,28 +15,29 @@
 		<h2>Public Info</h2>
 
 		<table><tr><td>
-			<img id="user_pic" src="{{profile.pic}}" data-value="{{profile.pic}}"/>
+			<img id="user_pic" src="{{xEditableUpdate '#user_pic' profile.pic}}"
+				data-value="{{profile.pic}}"/>
 		</td><td> &nbsp; &nbsp; </td><td>
 			<p>
-				<b><a id="user_name">{{profile.name}}</a></b>
+				<b><a id="user_name">{{xEditableUpdate '#user_name' profile.name}}</a></b>
 			</p>
 
 			<p>
 				<i class="fa fa-envelope fa-fw"></i>
 					<a href="{{#if itsMe}}{{else}}mailto:{{profile.email}}?subject=doingThisWith%20query{{/if}}"
-						id="user_email">{{profile.email}}</a>
+						id="user_email">{{xEditableUpdate '#user_email' profile.email}}</a>
 					<br />
 				<i class="fa fa-github fa-fw"></i>
 					<a href="{{#if itsMe}}{{else}}https://github.com/{{profile.github}}{{/if}}"
-						id="user_github" target="_blank">{{profile.github}}</a>
+						id="user_github" target="_blank">{{xEditableUpdate '#user_github' profile.github}}</a>
 					<br />
 				<i class="fa fa-twitter fa-fw"></i>
 					<a href="{{#if itsMe}}{{else}}https://twitter.com/{{profile.twitter}}{{/if}}"
-						id="user_twitter" target="_blank">{{profile.twitterl}}</a>
+						id="user_twitter" target="_blank">{{xEditableUpdate '#user_twitter' profile.twitterl}}</a>
 					<br />
 				<i class="fa fa-google-plus fa-fw"></i>
 					<a href="{{#if itsMe}}{{else}}https://plus.google.com/{{profile.gplus}}{{/if}}"
-						id="user_gplus" target="_blank">{{profile.gPlus}}</a>
+						id="user_gplus" target="_blank">{{xEditableUpdate '#user_gplus' profile.gPlus}}</a>
 					<br />
 			</p>
 
